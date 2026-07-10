@@ -1,0 +1,125 @@
+local Chloex = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChloeChronoa/10f09471a412152a70c1a8b128bbd0a3/refs/heads/main/dWk%3D"))()
+
+local Window = Chloex:Window({
+	Title = "Chloe X",
+	Footer = "Element Display",
+	Folder = "ChloeX Example",
+	Version = 1,
+	Color = Color3.fromRGB(0, 208, 255),
+	Image = "132435516080103"
+})
+
+local MainTab = Window:AddTab({
+	Name = "Main"
+})
+
+local Elements = MainTab:AddSection("All Elements", true)
+
+Elements:AddParagraph({
+	Title = "Paragraph",
+	Content = "Ini contoh paragraph / text display."
+})
+
+Elements:AddDivider()
+
+Elements:AddSubSection("Button")
+
+Elements:AddButton({
+	Title = "Normal Button",
+	Callback = function()
+		print("Button clicked")
+	end
+})
+
+Elements:AddButton({
+	Title = "Main Button",
+	SubTitle = "Sub Button",
+	Callback = function()
+		print("Main button clicked")
+	end,
+	SubCallback = function()
+		print("Sub button clicked")
+	end
+})
+
+Elements:AddSubSection("Toggle")
+
+Elements:AddToggle({
+	Title = "Example Toggle",
+	Default = false,
+	Callback = function(value)
+		print("Toggle:", value)
+	end
+})
+
+Elements:AddSubSection("Slider")
+
+Elements:AddSlider({
+	Title = "Example Slider",
+	Min = 0,
+	Max = 100,
+	Default = 25,
+	Increment = 1,
+	Callback = function(value)
+		print("Slider:", value)
+	end
+})
+
+Elements:AddSubSection("Input")
+
+Elements:AddInput({
+	Title = "Example Input",
+	Placeholder = "Type something...",
+	Default = "",
+	Callback = function(value)
+		print("Input:", value)
+	end
+})
+
+Elements:AddSubSection("Dropdown")
+
+Elements:AddDropdown({
+	Title = "Single Dropdown",
+	Multi = false,
+	Options = { "Apple", "Banana", "Cherry" },
+	Default = "Apple",
+	Callback = function(value)
+		print("Single Dropdown:", value)
+	end
+})
+
+Elements:AddDropdown({
+	Title = "Multi Dropdown",
+	Multi = true,
+	Options = { "Auto Farm", "Auto Sell", "Auto Buy", "Webhook" },
+	Default = { "Auto Farm" },
+	Callback = function(value)
+		print("Multi Dropdown:", table.concat(value, ", "))
+	end
+})
+
+Elements:AddSubSection("Advanced Dropdown")
+
+Elements:AddDropdown({
+	Title = "Advanced Dropdown",
+	Advanced = true,
+	Multi = false,
+	Options = {
+		{
+			Label = "Chloe X",
+			Value = "chloex",
+			Description = "Main UI Library",
+			Image = "132435516080103"
+		},
+		{
+			Label = "Executor UI",
+			Value = "executor",
+			Description = "Executor Mode",
+			Image = "132435516080103"
+		}
+	},
+	Default = "chloex",
+	Callback = function(value)
+		print("Advanced Dropdown:", value)
+	end
+})
